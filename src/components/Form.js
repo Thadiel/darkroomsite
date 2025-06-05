@@ -9,11 +9,39 @@ export default function Form() {
     service: '',
     message: ''
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus('')
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', service: '', message: '' })
+        console.log('Email sent successfully:', result)
+      } else {
+        setSubmitStatus('error')
+        console.error('Failed to send email:', result)
+      }
+    } catch (error) {
+      setSubmitStatus('error')
+      console.error('Error:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e) => {
@@ -48,7 +76,7 @@ export default function Form() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -62,7 +90,7 @@ export default function Form() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -75,13 +103,13 @@ export default function Form() {
                     name="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
-                    <option className="text-gray-950" value="">Select a service</option>
-                    <option className="text-gray-950" value="development">Film Development</option>
-                    <option className="text-gray-950" value="printing">Prints & Enlargements</option>
-                    <option className="text-gray-950" value="scanning">Digital Scanning</option>
-                    <option className="text-gray-950" value="other">Other</option>
+                    <option value="">Select a service</option>
+                    <option value="Film Development">Film Development</option>
+                    <option value="Prints & Enlargements">Prints & Enlargements</option>
+                    <option value="Digital Scanning">Digital Scanning</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div>
@@ -94,14 +122,33 @@ export default function Form() {
                     rows="4"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
+                
+                {submitStatus === 'success' && (
+                  <div className="p-3 bg-green-900 border border-green-700 rounded-md">
+                    <p className="text-green-400 text-sm">
+                      ✓ Message sent successfully! We'll get back to you soon.
+                    </p>
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="p-3 bg-red-900 border border-red-700 rounded-md">
+                    <p className="text-red-400 text-sm">
+                      ✗ Failed to send message. Please try again or contact us directly.
+                    </p>
+                  </div>
+                )}
+                
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-200"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
             </div>

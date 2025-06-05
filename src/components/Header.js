@@ -19,10 +19,10 @@ export default function Header() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
-                HOME
+                home
               </Link>
               <Link href="/about-us" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
-                ABOUT US
+                about us
               </Link>
             </div>
           </div>
