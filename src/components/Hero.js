@@ -9,6 +9,7 @@ export default function Hero() {
           <p className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
             Expert darkroom services for photographers who demand quality. From vintage film to modern emulsions, we handle your memories with care.
           </p>
+          {/*
           <div className="space-x-4">
             <a href="/services" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition duration-200">
               View Services
@@ -17,6 +18,7 @@ export default function Hero() {
               Get Quote
             </a>
           </div>
+          */}
         </div>
       </div>
     </section>

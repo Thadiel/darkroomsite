@@ -7,25 +7,22 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm fixed w-full top-0 z-50">
+    <header className="bg-white  fixed w-full top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-900">
-              Analog Lab
+            <Link href="/" className="text-3xl font-bold text-gray-900 font-impact">
+              FOTO DUMP 
             </Link>
           </div>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                Home
+              <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                HOME
               </Link>
-              <Link href="/services" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                Services
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium">
-                Contact
+              <Link href="/about-us" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                ABOUT US
               </Link>
             </div>
           </div>
