@@ -65,8 +65,8 @@ const CoverflowCarousel = () => {
   return (
      <div className="w-full py-16">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Quality You Can See</h2>
-        <p className="text-gray-600">Examples of our professional development and printing work</p>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4"></h2>
+        <p className="text-gray-600"></p>
       </div>
       
       <Swiper

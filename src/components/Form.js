@@ -7,6 +7,7 @@ export default function Form() {
     name: '',
     email: '',
     service: '',
+    rolls:'',
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -54,17 +55,8 @@ export default function Form() {
   return (
       <main className="pt-30 pb-16 flex-grow bg-gray-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
             <div>
-              <h1 className="text-4xl font-bold text-white mb-6">Ready to Develop Your Film?</h1>
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-gray-300">Get in touch to discuss your project <br/> or visit our lab for professional film <br/> development services.</h3>
-                </div>
-              </div>
-            </div>
-
-            <div>
+              <h1 className="text-4xl text-center font-bold text-white mb-6">Dump Your Fotos Here</h1>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
@@ -94,6 +86,32 @@ export default function Form() {
                     required
                   />
                 </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
+                    # of Rolls
+                  </label>
+                  <select
+                    type="number"
+                    id="rolls"
+                    name="rolls"
+                    value={formData.rolls}
+                    onChange={handleChange}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10+">10+</option>
+                  </select>
+                </div>
                 <div>
                   <label htmlFor="service" className="block text-sm font-medium text-gray-300 mb-1">
                     Service Needed
@@ -106,10 +124,9 @@ export default function Form() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   >
                     <option value="">Select a service</option>
-                    <option value="Film Development">Film Development</option>
-                    <option value="Prints & Enlargements">Prints & Enlargements</option>
-                    <option value="Digital Scanning">Digital Scanning</option>
-                    <option value="Other">Other</option>
+                    <option value="Film Development">Film Development & Scanning</option>
+                    <option value="Prints & Enlargements">Developing Only </option>
+                    <option value="Digital Scanning">Buy a Shirt</option>
                   </select>
                 </div>
                 <div>
@@ -123,7 +140,7 @@ export default function Form() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Tell us about your project..."
+                    placeholder="If you have any additional notes, say what's up"
                   ></textarea>
                 </div>
                 
@@ -153,7 +170,6 @@ export default function Form() {
               </form>
             </div>
           </div>
-        </div>
       </main>
   )
 }

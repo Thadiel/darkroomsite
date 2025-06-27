@@ -18,7 +18,10 @@ export default function Home() {
       <Header />
       <Pricing/>
       <Carousel/>
-      <Form/>
+
+      <div id="contact">
+        <Form />
+      </div>
       <Footer />
     </div>
   )

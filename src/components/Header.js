@@ -21,8 +21,11 @@ export default function Header() {
               <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
                 home
               </Link>
-              <Link href="/about-us" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
-                about us
+              <Link href="/prices" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                prices
+              </Link>
+              <Link href="/#contact" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                contact us
               </Link>
             </div>
           </div>
@@ -42,14 +45,11 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
-              <Link href="/" className="block text-gray-700 hover:text-gray-900 px-3 py-2 text-base font-medium">
-                Home
+              <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                home
               </Link>
-              <Link href="/services" className="block text-gray-700 hover:text-gray-900 px-3 py-2 text-base font-medium">
-                Services
-              </Link>
-              <Link href="/contact" className="block text-gray-700 hover:text-gray-900 px-3 py-2 text-base font-medium">
-                Contact
+              <Link href="/about-us" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                contact us
               </Link>
             </div>
           </div>
