@@ -48,7 +48,10 @@ export default function Header() {
               <Link href="/" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
                 home
               </Link>
-              <Link href="/about-us" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+              <Link href="/prices" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
+                prices
+              </Link>
+              <Link href="/#contact" className="text-gray-700 hover:text-gray-900 px-3 py-2 text-lg font-medium font-impact">
                 contact us
               </Link>
             </div>

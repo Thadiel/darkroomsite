@@ -8,8 +8,8 @@ export async function POST(request) {
 
   try {
     const data = await resend.emails.send({
-      from: 'Foto Dump <noreply@yourdomain.com>',
-      to: ['your-email@example.com'],
+      from: 'Foto Dump <info@fotodump.co>',
+      to: ['team.fotodump@gmail.com'],
       subject: `New Contact Form Submission - ${service}`,
       html: `
         <h2>New Contact Form Submission</h2>
