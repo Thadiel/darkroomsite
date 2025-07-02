@@ -42,7 +42,7 @@ export default function Home() {
 
       <Header />
 
-      <div className="flex flex-col mt-24 lg:flex-row justify-center min-h-auto gap-10">
+      <div className="flex flex-col mt-24 lg:flex-row justify-center min-h-[66vh] gap-10">
       
 
       <div className="order-1 lg:order-none flex mx-3 justify-center items-center">

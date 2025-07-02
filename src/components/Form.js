@@ -7,7 +7,7 @@ export default function Form() {
     name: '',
     email: '',
     service: '',
-    rolls:'',
+    rolls:"1",
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -31,7 +31,7 @@ export default function Form() {
 
       if (response.ok) {
         setSubmitStatus('success')
-        setFormData({ name: '', email: '', service: '', message: '' })
+        setFormData({ name: '', email: '', service: '', rolls: '', message: '' })
         console.log('Email sent successfully:', result)
       } else {
         setSubmitStatus('error')
@@ -100,6 +100,7 @@ export default function Form() {
                     className="w-full px-3 py-2 border border-gray-300 rounded-md text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   >
+                    <option value="0">Rolls not needed</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
